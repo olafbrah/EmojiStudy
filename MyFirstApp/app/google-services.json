@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "626169284980",
+    "project_id": "emojistudy-ea8e5",
+    "storage_bucket": "emojistudy-ea8e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626169284980:android:330417fd8b06169c220421",
+        "android_client_info": {
+          "package_name": "com.example.myfirstapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626169284980-fj9i2bk8h477ak5rdc5dhngv12k4vrsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1vmNkz5a-F7uwGNdekcscvhHKHJbCkPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626169284980-fj9i2bk8h477ak5rdc5dhngv12k4vrsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
