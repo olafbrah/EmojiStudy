@@ -26,6 +26,10 @@ public class CreateActivity extends AppCompatActivity {
     int lastSetCount;
     int page;
     EditText emojiTranslation;
+    Button next;
+    String[] tempList;
+    ArrayList<String[]> completeList;
+    EditText englishTranslation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         reader = new CSVReader(new InputStreamReader(getResources().openRawResource(R.raw.emoji_df)));
@@ -67,11 +71,11 @@ public class CreateActivity extends AppCompatActivity {
                 }
                 if(page < emojiSetCount) {
                     for (int i = 0; i < displayedArray.size(); i++) {
-                        displayedArray.get(i).setText(emojiArray.get(i + 1 + page * 7)[0]);
+                        displayedArray.get(i).setText(emojiArray.get(i+1+page*7)[0]);
                     }
                 } else {
                     for (int i = 0; i < lastSetCount; i++) {
-                        displayedArray.get(i).setText(emojiArray.get(i + 1 + page * 7)[0]);
+                        displayedArray.get(i).setText(emojiArray.get(i+1+page*7)[0]);
                     }
                 }
             }
@@ -87,12 +91,31 @@ public class CreateActivity extends AppCompatActivity {
                 }
             });
         }
+
+        // adding completed translation to list
+        englishTranslation = (EditText)findViewById(R.id.editText_english_translation_create);
+        tempList = new String[2];
+        completeList = new ArrayList<String[]>();
+        next = (Button)findViewById(R.id.button_next_create);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!emojiTranslation.getText().toString().equals("") && !englishTranslation.getText().toString().equals("")){
+                    tempList[0] = emojiTranslation.getText().toString();
+                    tempList[1] = englishTranslation.getText().toString();
+                    completeList.add(tempList);
+                }
+            }
+        });
+
         // to the home screen ie done creating
         home = (Button) findViewById(R.id.button_done_create);
+        if(completeList.size() != 0)
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO conditionals to prevent errors, actual creation of set
+                // TODO conditionals to prevent errors, sending of set to home
+                completeList.clear();
                 Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(i);
             }

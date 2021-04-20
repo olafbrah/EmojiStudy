@@ -49,6 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO send the text in EditText newListName to CreateActivity to store in completeSet and use to change Button myList
                 Intent i = new Intent(getApplicationContext(), CreateActivity.class);
                 startActivity(i);
             }
