@@ -66,6 +66,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         // to the study screen
+        // TODO make the study button into a spinner and whatever else to implement multiple lists
         study = (Button)findViewById(R.id.button_my_list_1_home);
         if(get.getStringExtra("from").equals("create") || get.getStringExtra("from").equals("study"))
             study.setText(completeList.get(0));
