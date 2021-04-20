@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +25,7 @@ public class CreateActivity extends AppCompatActivity {
     int emojiSetCount;
     int lastSetCount;
     int page;
+    EditText emojiTranslation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         reader = new CSVReader(new InputStreamReader(getResources().openRawResource(R.raw.emoji_df)));
@@ -75,6 +77,16 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
+        // selecting emoji ie adding to emoji translation
+        emojiTranslation = (EditText)findViewById(R.id.editText_emoji_translation_create);
+        for(Button i : displayedArray){
+            i.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    emojiTranslation.setText(emojiTranslation.getText().toString() + i.getText());
+                }
+            });
+        }
         // to the home screen ie done creating
         home = (Button) findViewById(R.id.button_done_create);
         home.setOnClickListener(new View.OnClickListener() {
