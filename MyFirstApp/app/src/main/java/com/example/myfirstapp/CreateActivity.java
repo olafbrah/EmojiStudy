@@ -32,6 +32,7 @@ public class CreateActivity extends AppCompatActivity {
     EditText englishTranslation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // reading csv and moving data from List to ArrayList
         reader = new CSVReader(new InputStreamReader(getResources().openRawResource(R.raw.emoji_df)));
         try {
             emojiList = reader.readAll();
@@ -42,6 +43,7 @@ public class CreateActivity extends AppCompatActivity {
         for(String[] i : emojiList) {
             emojiArray.add(i);
         }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 
@@ -81,6 +83,8 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
+        //TODO (optional) add other means of navigating the vast array of emojis
+
         // selecting emoji ie adding to emoji translation
         emojiTranslation = (EditText)findViewById(R.id.editText_emoji_translation_create);
         for(Button i : displayedArray){
@@ -92,7 +96,7 @@ public class CreateActivity extends AppCompatActivity {
             });
         }
 
-        // adding completed translation to list
+        // adding completed translation to completeList via having each EditText not empty and clicking Button next
         englishTranslation = (EditText)findViewById(R.id.editText_english_translation_create);
         tempList = new String[2];
         completeList = new ArrayList<String[]>();
@@ -108,13 +112,13 @@ public class CreateActivity extends AppCompatActivity {
             }
         });
 
-        // to the home screen ie done creating
+        // to the home screen ie done creating via clicking Button home
         home = (Button) findViewById(R.id.button_done_create);
         if(completeList.size() != 0)
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO conditionals to prevent errors, sending of set to home
+                // TODO sending of set to HomeActivity
                 completeList.clear();
                 Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(i);

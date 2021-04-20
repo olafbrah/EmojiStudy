@@ -18,19 +18,9 @@ public class HomeActivity extends AppCompatActivity {
     Button logout;
     Button create;
     Button study;
+    ArrayList<String[]> completeSet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*CSVReader reader = new CSVReader(new InputStreamReader(getResources().openRawResource(R.raw.emoji_df)));
-        List<String[]> emojiList = null;
-        try {
-            emojiList = reader.readAll();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ArrayList<String[]> emojiArray = new ArrayList<String[]>();
-        for(String[] i : emojiList) {
-            emojiArray.add(emojiList.toArray(i));
-        }*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
@@ -57,10 +47,11 @@ public class HomeActivity extends AppCompatActivity {
 
         // to the study screen
         study = (Button)findViewById(R.id.button_my_list_1_home);
+        // TODO when receiving completeSet, study.setText(completeSet.get(0)[0]);
         study.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO conditionals to prevent opening an empty set
+                // TODO conditionals to prevent opening an empty set, sending of completeSet to StudyActivity
                 Intent i = new Intent(getApplicationContext(), StudyActivity.class);
                 startActivity(i);
             }
