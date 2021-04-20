@@ -110,6 +110,8 @@ public class CreateActivity extends AppCompatActivity {
                 if(!emojiTranslation.getText().toString().equals("") && !englishTranslation.getText().toString().equals("")){
                     completeList.add(emojiTranslation.getText().toString());
                     completeList.add(englishTranslation.getText().toString());
+                    emojiTranslation.setText(null);
+                    englishTranslation.setText(null);
                 }
             }
         });
