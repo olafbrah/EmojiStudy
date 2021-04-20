@@ -34,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent get = getIntent();
         welcome = (TextView)findViewById(R.id.label_welcome_home);
+        // TODO save username between all activities until a new one is created in either registration or login and continue welcoming whenever at home
         if(get.getStringExtra("from").equals("login")){
             username = get.getStringExtra("username");
             welcome.setText(welcome.getText().toString() + username);
