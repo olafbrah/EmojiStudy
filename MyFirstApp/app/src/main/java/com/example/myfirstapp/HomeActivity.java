@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.opencsv.CSVReader;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,11 +22,26 @@ public class HomeActivity extends AppCompatActivity {
     Button logout;
     Button create;
     Button study;
-    ArrayList<String[]> completeSet;
+    ArrayList<String> completeList;
+    String username;
+    TextView welcome;
+    EditText newListName;
+    Button myList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Intent get = getIntent();
+        welcome = (TextView)findViewById(R.id.label_welcome_home);
+        if(get.getStringExtra("from").equals("login")){
+            username = get.getStringExtra("username");
+            welcome.setText(welcome.getText().toString() + username);
+        }
+        else
+            welcome.setText("");
+        if(get.getStringExtra("from").equals("create") || get.getStringExtra("from").equals("study"))
+            completeList = get.getStringArrayListExtra("complete_list");
 
         // to the register screen ie logging out
         logout = (Button)findViewById(R.id.button_log_out_home);
@@ -35,25 +54,30 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         // to the creation screen
+        newListName = (EditText)findViewById(R.id.editText_new_list_name_home);
         create = (Button)findViewById(R.id.button_create_home);
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO send the text in EditText newListName to CreateActivity to store in completeSet and use to change Button myList
                 Intent i = new Intent(getApplicationContext(), CreateActivity.class);
+                i.putExtra("list_name",newListName.getText().toString());
                 startActivity(i);
             }
         });
 
         // to the study screen
         study = (Button)findViewById(R.id.button_my_list_1_home);
-        // TODO when receiving completeSet, study.setText(completeSet.get(0)[0]);
+        if(get.getStringExtra("from").equals("create") || get.getStringExtra("from").equals("study"))
+            study.setText(completeList.get(0));
         study.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO conditionals to prevent opening an empty set, sending of completeSet to StudyActivity
-                Intent i = new Intent(getApplicationContext(), StudyActivity.class);
-                startActivity(i);
+                if (completeList.size() != 0) {
+                    Intent i = new Intent(getApplicationContext(), StudyActivity.class);
+                    i.putExtra("list_name", completeList.get(0));
+                    i.putExtra("complete_list", completeList);
+                    startActivity(i);
+                }
             }
         });
     }

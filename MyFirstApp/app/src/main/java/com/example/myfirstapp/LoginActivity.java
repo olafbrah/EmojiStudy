@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.opencsv.CSVReader;
 
@@ -19,6 +20,7 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 public class LoginActivity extends AppCompatActivity {
     Button register;
     Button login;
+    EditText email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +37,15 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // to the home screen ie logging in
+        email = (EditText)findViewById(R.id.editText_email_login);
         login = (Button)findViewById(R.id.button_submit_login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO conditionals for logging in
                 Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                i.putExtra("username",email.getText().toString());
+                i.putExtra("from","login");
                 startActivity(i);
             }
         });

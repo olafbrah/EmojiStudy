@@ -7,7 +7,7 @@
     tools:context=".HomeActivity">
 
     <TextView
-        android:id="@+id/labe_welcome_home"
+        android:id="@+id/label_welcome_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

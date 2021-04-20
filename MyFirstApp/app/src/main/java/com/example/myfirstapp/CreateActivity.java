@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreateActivity extends AppCompatActivity {
-    Button home;
+    Button done;
     ArrayList<Button> displayedArray;
     List<String[]> emojiList;
     CSVReader reader;
@@ -28,7 +28,7 @@ public class CreateActivity extends AppCompatActivity {
     EditText emojiTranslation;
     Button next;
     String[] tempList;
-    ArrayList<String[]> completeList;
+    ArrayList<String> completeList;
     EditText englishTranslation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,10 @@ public class CreateActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
+
+        completeList = new ArrayList<String>();
+        Intent get = getIntent();
+        completeList.add(get.getStringExtra("list_name"));
 
         // setting emojis
         displayedArray = new ArrayList<Button>();
@@ -99,29 +103,30 @@ public class CreateActivity extends AppCompatActivity {
         // adding completed translation to completeList via having each EditText not empty and clicking Button next
         englishTranslation = (EditText)findViewById(R.id.editText_english_translation_create);
         tempList = new String[2];
-        completeList = new ArrayList<String[]>();
         next = (Button)findViewById(R.id.button_next_create);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!emojiTranslation.getText().toString().equals("") && !englishTranslation.getText().toString().equals("")){
-                    tempList[0] = emojiTranslation.getText().toString();
-                    tempList[1] = englishTranslation.getText().toString();
-                    completeList.add(tempList);
+                    completeList.add(emojiTranslation.getText().toString());
+                    completeList.add(englishTranslation.getText().toString());
                 }
             }
         });
 
         // to the home screen ie done creating via clicking Button home
-        home = (Button) findViewById(R.id.button_done_create);
-        if(completeList.size() != 0)
-        home.setOnClickListener(new View.OnClickListener() {
+        done = (Button) findViewById(R.id.button_done_create);
+        done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO sending of set to HomeActivity
-                completeList.clear();
-                Intent i = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(i);
+                if (!emojiTranslation.getText().toString().equals("") && !englishTranslation.getText().toString().equals("")) {
+                    completeList.add(emojiTranslation.getText().toString());
+                    completeList.add(englishTranslation.getText().toString());
+                    Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                    i.putExtra("complete_list", completeList);
+                    i.putExtra("from", "create");
+                    startActivity(i);
+                }
             }
         });
     }
