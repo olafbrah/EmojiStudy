@@ -27,7 +27,6 @@ public class CreateActivity extends AppCompatActivity {
     int page;
     EditText emojiTranslation;
     Button next;
-    String[] tempList;
     ArrayList<String> completeList;
     EditText englishTranslation;
     @Override
@@ -102,7 +101,6 @@ public class CreateActivity extends AppCompatActivity {
 
         // adding completed translation to completeList via having each EditText not empty and clicking Button next
         englishTranslation = (EditText)findViewById(R.id.editText_english_translation_create);
-        tempList = new String[2];
         next = (Button)findViewById(R.id.button_next_create);
         next.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -26,7 +26,8 @@ public class HomeActivity extends AppCompatActivity {
     String username;
     TextView welcome;
     EditText newListName;
-    Button myList;
+    Button myList; // will become a spinner
+    Button delete;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // to the study screen
         // TODO make the study button into a spinner and whatever else to implement multiple lists
-        study = (Button)findViewById(R.id.button_my_list_1_home);
+        study = (Button)findViewById(R.id.button_my_list_1_home); // id will change, current will become that of a spinner, refactor spinner's id to spinner_my_list_home
         if(get.getStringExtra("from").equals("create") || get.getStringExtra("from").equals("study"))
             study.setText(completeList.get(0));
         study.setOnClickListener(new View.OnClickListener() {
