@@ -20,7 +20,7 @@ public class CreateActivity extends AppCompatActivity {
     ArrayList<Button> displayedArray;
     List<String[]> emojiList;
     CSVReader reader;
-    ArrayList<String[]> emojiArray;
+    String[][] emojiArray;
     Button nextEmojiSet;
     int emojiSetCount;
     int lastSetCount;
@@ -38,9 +38,9 @@ public class CreateActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        emojiArray = new ArrayList<String[]>();
-        for(String[] i : emojiList) {
-            emojiArray.add(i);
+        emojiArray = new String[emojiList.size()][emojiList.get(0).length];
+        for(int i = 0; i < emojiList.size(); i++) {
+            emojiArray[i] = emojiList.get(i);
         }
 
         super.onCreate(savedInstanceState);
@@ -60,12 +60,12 @@ public class CreateActivity extends AppCompatActivity {
         displayedArray.add((Button)findViewById(R.id.button_emoji_6_create));
         displayedArray.add((Button)findViewById(R.id.button_emoji_7_create));
         for(int i = 0; i < displayedArray.size(); i++){
-            displayedArray.get(i).setText(emojiArray.get(i+1)[0]);
+            displayedArray.get(i).setText(emojiArray[i+1][0]);
         }
 
         // to next page of emojis
-        emojiSetCount = emojiArray.size() / displayedArray.size();
-        lastSetCount = emojiArray.size() - emojiSetCount*7;
+        emojiSetCount = emojiArray.length / displayedArray.size();
+        lastSetCount = emojiArray.length - emojiSetCount*7;
         nextEmojiSet = (Button)findViewById(R.id.button_next_emoji_set_create);
         nextEmojiSet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +76,11 @@ public class CreateActivity extends AppCompatActivity {
                 }
                 if(page < emojiSetCount) {
                     for (int i = 0; i < displayedArray.size(); i++) {
-                        displayedArray.get(i).setText(emojiArray.get(i+1+page*7)[0]);
+                        displayedArray.get(i).setText(emojiArray[i+1+page*7][0]);
                     }
                 } else {
                     for (int i = 0; i < lastSetCount; i++) {
-                        displayedArray.get(i).setText(emojiArray.get(i+1+page*7)[0]);
+                        displayedArray.get(i).setText(emojiArray[i+1+page*7][0]);
                     }
                 }
             }
