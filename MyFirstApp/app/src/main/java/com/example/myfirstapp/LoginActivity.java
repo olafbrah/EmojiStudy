@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent get = getIntent();
         if(get.getBooleanExtra("registered",false))
-            DataHolder.setName(""); // TODO replace empty String with data from firebase
+            DataHolder.setName(""); // TODO replace empty String with name from firebase
         // to the registration screen
         register = (Button)findViewById(R.id.button_no_account_login);
         register.setOnClickListener(new View.OnClickListener() {

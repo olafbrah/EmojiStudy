@@ -48,7 +48,6 @@ public class HomeActivity extends AppCompatActivity {
         if(get.getStringExtra("from").equals("create")) {
             completeList = get.getStringArrayListExtra("complete_list");
             DataHolder.addList(completeList);
-            Log.d("doubleList",DataHolder.getList().toString());
         }
         for(ArrayList<String> i : DataHolder.getList()){
             listNames.add(i.get(0));
