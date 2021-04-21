@@ -44,6 +44,8 @@ public class HomeActivity extends AppCompatActivity {
             welcome.setText("");
         if(get.getStringExtra("from").equals("create") || get.getStringExtra("from").equals("study"))
             completeList = get.getStringArrayListExtra("complete_list");
+        else
+            completeList = new ArrayList<String>();
 
         // to the register screen ie logging out
         logout = (Button)findViewById(R.id.button_log_out_home);
