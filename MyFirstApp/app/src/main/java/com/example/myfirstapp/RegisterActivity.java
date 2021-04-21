@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
                 // TODO conditionals for registration
                 Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                 i.putExtra("registered",true);
-                i.putExtra("name",name.getText().toString());
+                DataHolder.setName(name.getText().toString());
                 startActivity(i);
             }
         });

@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Intent get = getIntent();
+        if(get.getBooleanExtra("registered",false))
+            DataHolder.setName(""); // TODO replace empty String with data from firebase
         // to the registration screen
         register = (Button)findViewById(R.id.button_no_account_login);
         register.setOnClickListener(new View.OnClickListener() {
@@ -45,11 +47,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // TODO conditionals for logging in
                 Intent i = new Intent(getApplicationContext(), HomeActivity.class);
-                if(get.getBooleanExtra("registered",false))
-                   i.putExtra("username",get.getStringExtra("name"));
-                // TODO put the name from the preexisting account into the second parameter
-                else
-                    i.putExtra("username","");
                 i.putExtra("from","login");
                 startActivity(i);
             }

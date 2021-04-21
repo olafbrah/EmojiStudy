@@ -71,8 +71,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_create_new_list_home" />
 
-    <Button
-        android:id="@+id/button_my_list_1_home"
+    <Spinner
+        android:id="@+id/spinner_my_list_home"
         android:layout_width="150dp"
         android:layout_height="76dp"
         android:layout_marginStart="10dp"
