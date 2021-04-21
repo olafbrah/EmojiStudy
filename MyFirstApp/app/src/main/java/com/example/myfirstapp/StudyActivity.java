@@ -40,8 +40,10 @@ public class StudyActivity extends AppCompatActivity {
                     flashcard.setText(completeList.get(index*2+1));
                     english = true;
                 }
-                else
+                else{
                     flashcard.setText(completeList.get(index*2));
+                    english = false;
+                }
             }
         });
 
