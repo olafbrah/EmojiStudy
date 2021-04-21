@@ -45,10 +45,14 @@ public class HomeActivity extends AppCompatActivity {
         welcome.setText(welcome.getText().toString() + DataHolder.getName());
         listNames = new ArrayList<String>();
         listNames.add("-------");
-        if(get.getStringExtra("from").equals("create") || get.getStringExtra("from").equals("study")) {
+        if(get.getStringExtra("from").equals("create")) {
             completeList = get.getStringArrayListExtra("complete_list");
             DataHolder.addList(completeList);
-            listNames.add(completeList.get(0));
+            Log.d("doubleList",DataHolder.getList().toString());
+        }
+        for(ArrayList<String> i : DataHolder.getList()){
+            listNames.add(i.get(0));
+
         }
         completeList = new ArrayList<String>();
 
@@ -114,7 +118,7 @@ public class HomeActivity extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(DataHolder.getLength() > 1) {
+                if(DataHolder.getLength() > 1 && myList.getSelectedItemPosition() != 0) {
                     DataHolder.removeList(completeList);
                     listNames.remove(completeList.get(0));
                     completeList = new ArrayList<String>();

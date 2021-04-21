@@ -80,7 +80,6 @@ public class StudyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                 completeList.add(0,listName);
-                i.putExtra("complete_list",completeList);
                 i.putExtra("from","study");
                 startActivity(i);
             }
