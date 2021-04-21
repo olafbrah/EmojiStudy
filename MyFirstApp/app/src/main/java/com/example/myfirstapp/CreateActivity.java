@@ -53,12 +53,12 @@ public class CreateActivity extends AppCompatActivity {
         // setting emojis
         displayedArray = new Button[7];
         displayedArray[0] = (Button)findViewById(R.id.button_emoji_1_create);
-        displayedArray[0] = (Button)findViewById(R.id.button_emoji_2_create);
-        displayedArray[0] = (Button)findViewById(R.id.button_emoji_3_create);
-        displayedArray[0] = (Button)findViewById(R.id.button_emoji_4_create);
-        displayedArray[0] = (Button)findViewById(R.id.button_emoji_5_create);
-        displayedArray[0] = (Button)findViewById(R.id.button_emoji_6_create);
-        displayedArray[0] = (Button)findViewById(R.id.button_emoji_7_create);
+        displayedArray[1] = (Button)findViewById(R.id.button_emoji_2_create);
+        displayedArray[2] = (Button)findViewById(R.id.button_emoji_3_create);
+        displayedArray[3] = (Button)findViewById(R.id.button_emoji_4_create);
+        displayedArray[4] = (Button)findViewById(R.id.button_emoji_5_create);
+        displayedArray[5] = (Button)findViewById(R.id.button_emoji_6_create);
+        displayedArray[6] = (Button)findViewById(R.id.button_emoji_7_create);
         for(int i = 0; i < displayedArray.length; i++){
             displayedArray[i].setText(emojiArray[i+1][0]);
         }
