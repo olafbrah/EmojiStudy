@@ -6,12 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".CreateActivity">
 
+    <Button
+        android:id="@+id/button_prev_emoji_set_create"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/lessthan"
+        android:textSize="36sp"
+        app:backgroundTint="#FF9800"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_emoji_5_create" />
+
     <EditText
         android:id="@+id/editText_english_translation_create"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
         android:hint="English "
@@ -26,7 +38,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="51dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
         android:hint="Emoji "
@@ -34,7 +46,7 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_english_translation_create" />
 
     <Button
         android:id="@+id/button_done_create"
@@ -52,98 +64,110 @@
     <Button
         android:id="@+id/button_next_emoji_set_create"
         android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="60dp"
         android:text=">"
         android:textSize="36sp"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_emoji_7_create" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_emoji_7_create" />
 
     <Button
         android:id="@+id/button_emoji_2_create"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginTop="16dp"
         android:text="X"
         android:textSize="36sp"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_emoji_1_create" />
+        app:layout_constraintStart_toEndOf="@+id/button_emoji_1_create"
+        app:layout_constraintTop_toBottomOf="@+id/button_next_create" />
 
     <Button
         android:id="@+id/button_emoji_1_create"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginTop="16dp"
         android:text="X"
         android:textSize="36sp"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_next_create" />
 
     <Button
         android:id="@+id/button_emoji_3_create"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginTop="16dp"
         android:text="X"
         android:textSize="36sp"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_emoji_2_create" />
+        app:layout_constraintStart_toEndOf="@+id/button_emoji_2_create"
+        app:layout_constraintTop_toBottomOf="@+id/button_done_create" />
 
     <Button
         android:id="@+id/button_emoji_4_create"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginTop="16dp"
         android:text="X"
         android:textSize="36sp"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_emoji_3_create" />
+        app:layout_constraintStart_toEndOf="@+id/button_emoji_3_create"
+        app:layout_constraintTop_toBottomOf="@+id/button_done_create" />
 
     <Button
         android:id="@+id/button_emoji_5_create"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="16dp"
         android:text="X"
         android:textSize="36sp"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_emoji_1_create" />
 
     <Button
         android:id="@+id/button_emoji_6_create"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="16dp"
         android:text="X"
         android:textSize="36sp"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_emoji_5_create" />
+        app:layout_constraintStart_toEndOf="@+id/button_emoji_5_create"
+        app:layout_constraintTop_toBottomOf="@+id/button_emoji_2_create" />
 
     <Button
         android:id="@+id/button_emoji_7_create"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="16dp"
         android:text="X"
         android:textSize="36sp"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_emoji_6_create" />
+        app:layout_constraintStart_toEndOf="@+id/button_emoji_6_create"
+        app:layout_constraintTop_toBottomOf="@+id/button_emoji_3_create" />
+
+    <Button
+        android:id="@+id/button_emoji_8_create"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="X"
+        android:textSize="36sp"
+        app:backgroundTint="#FF9800"
+        app:layout_constraintStart_toEndOf="@+id/button_emoji_7_create"
+        app:layout_constraintTop_toBottomOf="@+id/button_emoji_3_create" />
 
     <Button
         android:id="@+id/button_next_create"

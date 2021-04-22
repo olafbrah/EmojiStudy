@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ public class CreateActivity extends AppCompatActivity {
     CSVReader reader;
     String[][] emojiArray;
     Button nextEmojiSet;
+    Button prevEmojiSet;
     int emojiSetCount;
     int lastSetCount;
     int page;
@@ -51,7 +53,7 @@ public class CreateActivity extends AppCompatActivity {
         completeList.add(get.getStringExtra("list_name"));
 
         // setting emojis
-        displayedArray = new Button[7];
+        displayedArray = new Button[8];
         displayedArray[0] = (Button)findViewById(R.id.button_emoji_1_create);
         displayedArray[1] = (Button)findViewById(R.id.button_emoji_2_create);
         displayedArray[2] = (Button)findViewById(R.id.button_emoji_3_create);
@@ -59,13 +61,16 @@ public class CreateActivity extends AppCompatActivity {
         displayedArray[4] = (Button)findViewById(R.id.button_emoji_5_create);
         displayedArray[5] = (Button)findViewById(R.id.button_emoji_6_create);
         displayedArray[6] = (Button)findViewById(R.id.button_emoji_7_create);
+        displayedArray[7] = (Button)findViewById(R.id.button_emoji_8_create);
         for(int i = 0; i < displayedArray.length; i++){
             displayedArray[i].setText(emojiArray[i+1][0]);
         }
 
         // to next page of emojis
-        emojiSetCount = emojiArray.length / displayedArray.length;
-        lastSetCount = emojiArray.length - emojiSetCount*7;
+
+        emojiSetCount = (emojiArray.length - 1) / displayedArray.length;
+        lastSetCount = (emojiArray.length - 1) - emojiSetCount*displayedArray.length;
+        Log.d("aaa",String.valueOf(lastSetCount));
         nextEmojiSet = (Button)findViewById(R.id.button_next_emoji_set_create);
         nextEmojiSet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +81,42 @@ public class CreateActivity extends AppCompatActivity {
                 }
                 if(page < emojiSetCount) {
                     for (int i = 0; i < displayedArray.length; i++) {
-                        displayedArray[i].setText(emojiArray[i+1+page*7][0]);
+                        displayedArray[i].setText(emojiArray[i+1+page*8][0]);
                     }
                 } else {
-                    for (int i = 0; i < lastSetCount; i++) {
-                        displayedArray[i].setText(emojiArray[i+1+page*7][0]);
+                    for (int i = 0; i < displayedArray.length; i++) {
+                        if(i < lastSetCount){
+                            displayedArray[i].setText(emojiArray[i+1+page*8][0]);
+                        }
+                        else{
+                            displayedArray[i].setText(null);
+                        }
+                    }
+                }
+            }
+        });
+
+        // to prev page of emojis
+        prevEmojiSet = (Button)findViewById(R.id.button_prev_emoji_set_create);
+        prevEmojiSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                page--;
+                if(page < 0){
+                    page = emojiSetCount;
+                }
+                if(page < emojiSetCount) {
+                    for (int i = 0; i < displayedArray.length; i++) {
+                        displayedArray[i].setText(emojiArray[i+1+page*8][0]);
+                    }
+                } else {
+                    for (int i = 0; i < displayedArray.length; i++) {
+                        if(i < lastSetCount){
+                            displayedArray[i].setText(emojiArray[i+1+page*8][0]);
+                        }
+                        else{
+                            displayedArray[i].setText(null);
+                        }
                     }
                 }
             }
