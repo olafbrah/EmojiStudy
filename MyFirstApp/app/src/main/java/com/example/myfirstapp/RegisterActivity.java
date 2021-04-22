@@ -40,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
         // to the login screen
         login = (Button) findViewById(R.id.button_already_have_account_register);
         login.setOnClickListener(new View.OnClickListener() {
