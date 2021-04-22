@@ -27,7 +27,6 @@ public class HomeActivity extends AppCompatActivity {
     Button create;
     Button study;
     ArrayList<String> completeList;
-    String username;
     TextView welcome;
     EditText newListName;
     Spinner myList;
@@ -42,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         welcome = (TextView)findViewById(R.id.label_welcome_home);
         //if(get.getStringExtra("from").equals("login"))
         //    username = get.getStringExtra("username");
-        welcome.setText(welcome.getText().toString() + DataHolder.getName());
+        welcome.setText(/*welcome.getText().toString() + DataHolder.getName()*/"Welcome");
         listNames = new ArrayList<String>();
         listNames.add("-------");
         if(get.getStringExtra("from").equals("create")) {
