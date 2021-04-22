@@ -40,8 +40,8 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent get = getIntent();
         welcome = (TextView)findViewById(R.id.label_welcome_home);
-        if(get.getStringExtra("from").equals("login"))
-            username = get.getStringExtra("username");
+        //if(get.getStringExtra("from").equals("login"))
+        //    username = get.getStringExtra("username");
         welcome.setText(welcome.getText().toString() + DataHolder.getName());
         listNames = new ArrayList<String>();
         listNames.add("-------");

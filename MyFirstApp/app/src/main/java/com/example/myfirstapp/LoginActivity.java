@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 // TODO conditionals for logging in
                 Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                 i.putExtra("from","login");
+                i.putExtra("username","");
                 startActivity(i);
             }
         });
