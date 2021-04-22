@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (password1.equals(password2)) {
+                if (!(password1.equals(password2))){
                     pass_two.setError("Passwords must match");
                     return;
                 }
