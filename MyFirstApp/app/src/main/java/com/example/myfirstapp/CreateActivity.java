@@ -70,7 +70,6 @@ public class CreateActivity extends AppCompatActivity {
 
         emojiSetCount = (emojiArray.length - 1) / displayedArray.length;
         lastSetCount = (emojiArray.length - 1) - emojiSetCount*displayedArray.length;
-        Log.d("aaa",String.valueOf(lastSetCount));
         nextEmojiSet = (Button)findViewById(R.id.button_next_emoji_set_create);
         nextEmojiSet.setOnClickListener(new View.OnClickListener() {
             @Override
