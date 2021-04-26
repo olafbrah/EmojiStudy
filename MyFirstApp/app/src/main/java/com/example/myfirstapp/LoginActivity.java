@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent get = getIntent();
         if(get.getBooleanExtra("registered",false))
-            DataHolder.setName(""); // TODO replace empty String with name from firebase
+            DataHolder.setName(""); // TODO (extra) replace empty String with name from firebase
         // to the registration screen
 
         register = (Button)findViewById(R.id.button_no_account_login);
@@ -63,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO conditionals for logging in
                 String Lemail = email.getText().toString().trim();
                 String Lpassword = password.getText().toString().trim();
                 Intent i = new Intent(getApplicationContext(), HomeActivity.class);
