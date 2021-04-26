@@ -88,6 +88,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                            i.putExtra("from","login");
+                            i.putExtra("username","");
                             startActivity(i);
                         }else {
                             Toast.makeText(LoginActivity.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -97,9 +99,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
 
-//                i.putExtra("from","login");
-//                i.putExtra("username","");
-//                startActivity(i);
             }
         });
     }
