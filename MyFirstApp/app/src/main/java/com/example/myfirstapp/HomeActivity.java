@@ -71,9 +71,11 @@ public class HomeActivity extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), CreateActivity.class);
-                i.putExtra("list_name",newListName.getText().toString());
-                startActivity(i);
+                if(!newListName.getText().toString().isEmpty()) {
+                    Intent i = new Intent(getApplicationContext(), CreateActivity.class);
+                    i.putExtra("list_name", newListName.getText().toString());
+                    startActivity(i);
+                }
             }
         });
 
